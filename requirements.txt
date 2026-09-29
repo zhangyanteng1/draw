@@ -1,0 +1,30 @@
+# requirements.txt
+# 依赖来源: 扫描项目源码 import + SQLAlchemy 驱动推导, 仅含本项目直接依赖
+# 版本号: 取自本地 pip list (2026-08-10)
+
+# Web 框架
+fastapi==0.115.12
+uvicorn==0.34.3
+starlette==0.46.2
+
+# ORM & 数据库
+SQLAlchemy==2.0.23
+PyMySQL==1.1.0
+
+# 数据校验
+pydantic==2.11.1
+
+# 缓存
+redis>=5.0,<6
+
+# 配置
+PyYAML==6.0.3
+python-dotenv==1.0.0
+
+# 定时任务
+APScheduler==3.11.0
+
+# 工具库
+argon2-cffi==25.1.0            # 密码哈希 (tool/user_utils.py)
+PyJWT==2.10.1                  # JWT (tool/jwt_utils.py)
+python-dateutil==2.9.0.post0   # 日期处理 (tool/date_utils.py)
