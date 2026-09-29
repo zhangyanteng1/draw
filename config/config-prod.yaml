@@ -1,0 +1,48 @@
+# mysql数据库配置
+mysql_pulse_conf:
+  host: '127.0.0.1'
+  port: 3306
+  user: 'root'
+  password: 'admin'
+  database: 'pulse'
+
+# redis配置
+redis_pulse_conf:
+  host: '127.0.0.1'
+  port: 6379
+  max_connections: 10
+  decode_responses: True
+
+# 登录白名单
+no_authorize_api:
+  - '/user/register'
+  - '/user/login'
+  - '/user/refresh'
+  - '/upload'
+
+# 定时任务配置
+script:
+  scheduler:
+    max_workers: 10
+
+  cron:
+    draw_online_task:
+        task_id: "draw_online"
+        cron_expr: "*/5 * * * *"
+        max_instances: 1
+        misfire_grace_time: 30
+        coalesce: true
+
+    draw_offline_task:
+        task_id: "draw_offline"
+        cron_expr: "*/5 * * * *"
+        max_instances: 1
+        misfire_grace_time: 30
+        coalesce: true
+
+    draw_reconcile_task:
+        task_id: "draw_reconcile"
+        cron_expr: "*/5 * * * *"
+        max_instances: 1
+        misfire_grace_time: 30
+        coalesce: true
